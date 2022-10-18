@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../modeller/model.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<model xmlns:xi="http://www.w3.org/2001/XInclude">
+    <meta>
+        <title>SiCProD Data Model</title>
+        <contributor role="author">
+            <person ID="MS">
+                <name>Matthias Schlögl</name>
+                <contact>matthias.schloegl@oeaw.ac.at</contact>
+            </person>
+        </contributor>
+        <version>0.1</version>
+        <changelog>
+            <change status="draft" when="2022-10-15" who="MS">First version</change>
+        </changelog>
+        <audience>EXTERNAL</audience>
+        <namespaces>
+            <namespace prefix="crm" ID="crm">http://www.cidoc-crm.org/cidoc-crm/</namespace>
+        </namespaces>
+    </meta>
+    <description><p>This is the overall data model for the SiCProD project.</p></description>
+    <classes>
+        <class ID="person">
+            <name>Person</name>
+            <definition>
+                <p>Persons as used in SiCProD. This is a subclass of <className>crm:E21_Person</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="person.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>This is the surname of a person. To keep consistency with other APIS instances name is used.</note>
+                </property>
+                <property ID="person.first_name">
+                    <arity>1</arity>
+                    <name>First Name</name>
+                    <datatypeName target="shortText" />
+                    <note>This is the given name of a person. To keep consistency with other APIS instances the attribute first_name is used.</note>
+                </property>
+                <property ID="person.start_date_written">
+                    <arity>1</arity>
+                    <name>Birth Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The date of birth of a person.</note>
+                </property>
+                <property ID="person.end_date_written">
+                    <arity>1</arity>
+                    <name>Death Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The date of death of a person.</note>
+                </property>
+                <property ID="person.gender">
+                    <arity>1</arity>
+                    <name>Gender</name>
+                    <datatypeName target="choiceField" />
+                    <note>The gender of a person.</note>
+                </property>
+                <property ID="person.class_affiliation">
+                    <arity>1</arity>
+                    <name>Class Affiliation</name>
+                    <datatypeName target="choiceField" />
+                    <note>The class affiliation of a person.</note>
+                </property>
+                <property ID="person.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternative Label</name>
+                    <datatypeName target="shortText" />
+                    <note>An alternative label for a person.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
+                <note>Person for SiCProD should sublass E21_Person rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="place">
+            <name>Place</name>
+            <definition>
+                <p>Places as used in SiCProD. This is a subclass of <className>crm:E53_Place</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="place.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>This is the name of a place. To keep consistency with other APIS instances name is used.</note>
+                </property>
+                <property ID="place.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternative Label</name>
+                    <datatypeName target="shortText" />
+                    <note>An alternative label for a place.</note>
+                </property>
+                <property ID="place.type">
+                    <arity>1</arity>
+                    <name>Type</name>
+                    <datatypeName target="choiceField" />
+                    <note>The type of a place.</note>
+                </property>
+                <property ID="place.latitude">
+                    <arity>1</arity>
+                    <name>Latitude</name>
+                    <datatypeName target="float" />
+                    <note>The latitude of a place.</note>
+                </property>
+                <property ID="place.longitude">
+                    <arity>1</arity>
+                    <name>Longitude</name>
+                    <datatypeName target="float" />
+                    <note>The longitude of a place.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</className>
+                <note>Place for SiCProD should sublass E53_Place rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="institution">
+            <name>Institution</name>
+            <definition>
+                <p>Institutions as used in SiCProD. This is a subclass of <className>crm:E74_Group</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="institution.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>This is the name of an institution. To keep consistency with other APIS instances name is used.</note>
+                </property>
+                <property ID="institution.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternative Label</name>
+                    <datatypeName target="shortText" />
+                    <note>An alternative label for an institution.</note>
+                </property>
+                <property ID="institution.type">
+                    <arity>1</arity>
+                    <name>Type</name>
+                    <datatypeName target="choiceField" />
+                    <note>The type of an institution.</note>
+                </property>
+                <property ID="institution.start_date_written">
+                    <arity>1</arity>
+                    <name>Start Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The start date of an institution.</note>
+                </property>
+                <property ID="institution.end_date_written">
+                    <arity>1</arity>
+                    <name>End Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The end date of an institution.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
+                <note>Institution for SiCProD should sublass E74_Group rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="event">
+            <name>Event</name>
+            <definition>
+                <p>Events as used in SiCProD. This is a subclass of <className>crm:E5_Event</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="event.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>This is the name of an event. To keep consistency with other APIS instances name is used.</note>
+                </property>
+                <property ID="event.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternative Label</name>
+                    <datatypeName target="shortText" />
+                    <note>An alternative label for an event.</note>
+                </property>
+                <property ID="event.type">
+                    <arity>1</arity>
+                    <name>Type</name>
+                    <datatypeName target="choiceField" />
+                    <note>The type of an event.</note>
+                </property>
+                <property ID="event.start_date_written">
+                    <arity>1</arity>
+                    <name>Start Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The start date of an event.</note>
+                </property>
+                <property ID="event.end_date_written">
+                    <arity>1</arity>
+                    <name>End Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The end date of an event.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</className>
+                <note>Event for SiCProD should subclass E5_Event rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="salary">
+            <name>Salary</name>
+            <definition>
+                <p>A salary is an amount of money that a member of the court got in compensation for some duties.</p>
+            </definition>
+            <properties>
+                <property ID="salary.amount">
+                    <arity>0-1</arity>
+                    <name>Amount</name>
+                    <datatypeName target="float" />
+                    <note>The amount of a salary.</note>
+                </property>
+                <property ID="salary.currency">
+                    <arity>0-1</arity>
+                    <name>Currency</name>
+                    <datatypeName target="shortText" />
+                    <note>The currency of a salary.</note>
+                </property>
+                <property ID="salary.start_date_written">
+                    <arity>1</arity>
+                    <name>Start Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The start date of a salary.</note>
+                </property>
+                <property ID="salary.end_date_written">
+                    <arity>1</arity>
+                    <name>End Date</name>
+                    <datatypeName target="shortText" />
+                    <note>The end date of a salary.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount">crm:E97_Monetary_Amount</className>
+            </mapping>
+        </class>
+    </classes>
+    <relations></relations>
+    <vocabularies></vocabularies>
+    <datatypes>
+        <datatype ID="shortText">
+            <name>short text</name>
+        </datatype>
+        <datatype ID="choiceField">
+            <name>choice field</name>
+            <note>
+                <p>Choice fields are used to represent a choice between a number of options. The options are represented as a list of strings.</p>
+            </note>
+        </datatype>
+        <datatype ID="float">
+            <name>float</name>
+        </datatype>
+    </datatypes>
+</model>
