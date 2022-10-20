@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../modeller/model.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<model xmlns:xi="http://www.w3.org/2001/XInclude">
+    <meta>
+        <title>SiCProD Data Model</title>
+        <contributor role="author">
+            <person ID="MS">
+                <name>Matthias Schlögl</name>
+                <contact>matthias.schloegl@oeaw.ac.at</contact>
+            </person>
+        </contributor>
+        <version>0.1</version>
+        <changelog>
+            <change status="draft" when="2022-10-15" who="MS">First version</change>
+        </changelog>
+        <audience>EXTERNAL</audience>
+        <namespaces>
+            <namespace prefix="crm">http://www.cidoc-crm.org/cidoc-crm/</namespace>
+        </namespaces>
+    </meta>
+    <description><p>Dokumentation des SiCProD Datenmodells.</p></description>
+    <classes>
+        <class ID="person">
+            <name>Person</name>
+            <definition>
+                <p>Person, eine Subklasse von <className>crm:E21_Person</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="person.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Nachname der Person</note>
+                </property>
+                <property ID="person.first_name">
+                    <arity>1</arity>
+                    <name>Vorname</name>
+                    <datatypeName target="shortText" />
+                    <note>Vorname der Person.</note>
+                </property>
+                <property ID="person.start_date_written">
+                    <arity>1</arity>
+                    <name>Geburtsdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Geburtsdatum der Person.</note>
+                </property>
+                <property ID="person.end_date_written">
+                    <arity>1</arity>
+                    <name>Todesdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Todesdatum der Person.</note>
+                </property>
+                <property ID="person.gender">
+                    <arity>1</arity>
+                    <name>Geschlecht</name>
+                    <datatypeName target="choiceField" />
+                    <note>Geschlecht der Person.</note>
+                </property>
+                <property ID="person.class_affiliation">
+                    <arity>1</arity>
+                    <name>Klassenzugehörigkeit</name>
+                    <datatypeName target="choiceField" />
+                    <note>Klassenzugehörigkeit einer Person.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">Reicht es hier die höchste Klassenzugehörigkeit abzubilden oder brauchen wir 1-n Relationen?</CHECKME>
+                </property>
+                <property ID="person.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Feld um alternative Namen anzugeben.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">Reicht hier das lange Textfeld oder braucht es eine 1-n Relation?</CHECKME>
+                </property>
+            </properties>
+            <relations>
+                <relation ID="PersonHasLivingPlace">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>bewohnt</name>
+                    <reverseName>Bewohner von</reverseName>
+                </relation>
+                <relation ID="PersonOwnsPlace">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>besitzt</name>
+                    <reverseName>Besitzer von</reverseName>
+                </relation>
+                <relation ID="PersonHasCorrespondanceWith">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hat Korrespondenz mit</name>
+                    <reverseName>hat Korrespondenz mit</reverseName>
+                </relation>
+                <relation ID="PersonHasFamilyRelationWith">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hat Familienbeziehung zu</name>
+                    <reverseName>hat Familienbeziehung zu</reverseName>
+                </relation>
+                <relation ID="PersonHasMarrigeWith">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hat Ehe mit</name>
+                    <reverseName>hat Ehe mit</reverseName>
+                </relation>
+                <relation ID="PersonWasPresentAtCourt">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="court">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>war anwesend bei</name>
+                    <reverseName>hatte anwesende Person</reverseName>
+                </relation>
+                <relation ID="PersonRecommendedPersonForCourt">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>empfahl</name>
+                    <reverseName>wurde empfohlen von</reverseName>
+                </relation>
+                <relation ID="PersonHadBusinessRealtionshipWithPerson">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hat Geschäftsbeziehung zu</name>
+                    <reverseName>hat Geschäftsbeziehung zu</reverseName>
+                </relation>
+                <relation ID="PersonWasMemberOfInstitution">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="institution">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>Mitglied von</name>
+                    <reverseName>hatte Mitglied</reverseName>
+                </relation>
+                <relation ID="PersonTookPartInEvent">
+                    <sourceClass target="person">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="event">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>nahm teil an</name>
+                    <reverseName>hatte teilnehmende Person</reverseName>
+                </relation>
+                <relation ID="PersonRecievedSalary">
+                    <sourceClass target="salary">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>erhielt Gehalt</name>
+                    <reverseName>wurde ausbezahlt an</reverseName>
+                </relation>
+            </relations>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
+                <note>Person for SiCProD should sublass E21_Person rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="function">
+            <name>Funktion</name>
+            <definition>Eine Funktion kann von einer Person an einer <className>Institution</className> oder einem <className>Hof</className> ausgeübt werden kann.</definition>
+            <properties>
+                <property ID="function.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Der Name des Amtes z.B. Obersthofmeister.</note>
+                </property>
+                <property ID="function.alternative_label">
+                    <arity>0-1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Andere Namen für die Funktion.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">Wieder vielleicht 1-n statt Text Feld</CHECKME>
+                </property>
+            </properties>
+            <relations>
+                <relation ID="FunctionIsLocatedAtInstitution">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="institution court">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ist an</name>
+                    <reverseName>hat Funktion</reverseName>
+                </relation>
+            </relations>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</className>
+            </mapping>
+        </class>
+        <class ID="place">
+            <name>Ort</name>
+            <definition>
+                <p>Orte in SiCProD, Subklasse von <className>crm:E53_Place</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="place.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Name des Ortes</note>
+                </property>
+                <property ID="place.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Alternativer Name für einen Ort.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">1-n benötigt?</CHECKME>
+                </property>
+                <property ID="place.type">
+                    <arity>1</arity>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField"  vocabRef="vocabs.placeType"/>
+                    <note>Art des Ortes.</note>
+                </property>
+                <property ID="place.latitude">
+                    <arity>1</arity>
+                    <name>Breitengrad</name>
+                    <datatypeName target="float" />
+                    <note>Breitengrad des Ortes. Bei Polygonen wird die Mitte verwendet.</note>
+                </property>
+                <property ID="place.longitude">
+                    <arity>1</arity>
+                    <name>Längengrad</name>
+                    <datatypeName target="float" />
+                    <note>Längengrad des Ortes. Bei Polygonen wird die Mitte verwendet.</note>
+                </property>
+            </properties>
+            <relations>
+                <relation ID="PlaceLocatedInPlace">
+                    <sourceClass target="place">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>Teil von</name>
+                    <reverseName>hat Teil</reverseName>
+                </relation>
+            </relations>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E53_Place">crm:E53_Place</className>
+                <note>Place for SiCProD should sublass E53_Place rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="institution">
+            <name>Institution</name>
+            <definition>
+                <p>SiCProD Institution, Subklasse von <className>crm:E74_Group</className>. Wird für alle Institutionen benutzt die kein Hof sind</p>    
+            </definition>
+            <properties>
+                <property ID="institution.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Name der Institution.</note>
+                </property>
+                <property ID="institution.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Alternativer Name der Institution.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">Auch hier 1-n statt Freitext?</CHECKME>
+                </property>
+                <property ID="institution.type">
+                    <arity>1</arity>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField" />
+                    <note>Art der institution. ["Kanzlei", "Hofkapelle", "Küche", "(Dom-)Kapitel", "Universität", "Kloster", "Frauenzimmer", "Bistum", "Pfarrei"]</note>
+                </property>
+                <property ID="institution.start_date_written">
+                    <arity>1</arity>
+                    <name>Gründungsdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Gründungsdatum einer Institution.</note>
+                </property>
+                <property ID="institution.end_date_written">
+                    <arity>1</arity>
+                    <name>Enddatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum der Schliessung/Umbennenung etc einer Institution.</note>
+                </property>
+            </properties>
+            <relations>
+                <relation ID="InstitutionPaidSalary">
+                    <sourceClass target="institution">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>zahlte aus</name>
+                    <reverseName>wurde ausbezahlt von</reverseName>
+                </relation>
+            </relations>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
+                <note>Institution for SiCProD should sublass E74_Group rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="court">
+            <name>Hof</name>
+            <definition>
+                <p>SiCProD Hof, Subklasse von <className>crm:E74_Group</className>. Wird für alle Institutionen benutzt die ein Hof sind</p>    
+            </definition>
+            <properties>
+                <property ID="court.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Name des Hofes.</note>
+                </property>
+                <property ID="court.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Alternativer Name des Hofes.</note>
+                    <CHECKME who="MS" when="2022-10-20" status="new">Auch hier 1-n statt Freitext?</CHECKME>
+                </property>
+                <property ID="court.type">
+                    <arity>1</arity>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField" vocabRef="vocabs.courtTypes" />
+                    <note>Art des Hofes</note>
+                </property>
+                <property ID="court.start_date_written">
+                    <arity>1</arity>
+                    <name>Startdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum ab dem ein Hof existierte.</note>
+                </property>
+                <property ID="court.end_date_written">
+                    <arity>1</arity>
+                    <name>Enddatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum bis zu dem ein Hof existierte.</note>
+                </property>
+            </properties>
+            <relations>
+            </relations>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
+                <note>Court for SiCProD should sublass E74_Group rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="event">
+            <name>Ereignis</name>
+            <definition>
+                <p>SiCProD Ereignis, Subklasse von <className>crm:E5_Event</className>.</p>    
+            </definition>
+            <properties>
+                <property ID="event.name">
+                    <arity>1</arity>
+                    <name>Name</name>
+                    <datatypeName target="shortText" />
+                    <note>Name des Ereignisses.</note>
+                </property>
+                <property ID="event.alternative_label">
+                    <arity>1</arity>
+                    <name>Alternativer Name</name>
+                    <datatypeName target="longText" />
+                    <note>Alternativer Name.</note>
+                    <CHECKME status="new" when="2022-10-20" who="MS">Wieder 1-n statt ein Feld?</CHECKME>
+                </property>
+                <property ID="event.type">
+                    <arity>1</arity>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField" />
+                    <note>Typ des Ereignisses.</note>
+                </property>
+                <property ID="event.start_date_written">
+                    <arity>1</arity>
+                    <name>Startdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum an dem das Ereignis startete.</note>
+                </property>
+                <property ID="event.end_date_written">
+                    <arity>1</arity>
+                    <name>Enddatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum zu dem das Ereignis endete.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</className>
+                <note>Event for SiCProD should subclass E5_Event rather than use a owl:sameAs link</note>
+            </mapping>
+        </class>
+        <class ID="salary">
+            <name>Gehalt</name>
+            <definition>
+                <p>Ein Gehalt ist die Menge an Geld die eine Person als Gegenleistung erhalten hat. Das Gehalt muss keine wiederkehrende Zahlung sein.</p>
+            </definition>
+            <properties>
+                <property ID="salary.amount">
+                    <arity>0-1</arity>
+                    <name>Summe</name>
+                    <datatypeName target="float" />
+                    <note>Die ausbezahlte Summe.</note>
+                </property>
+                <property ID="salary.currency">
+                    <arity>0-1</arity>
+                    <name>Währung</name>
+                    <datatypeName target="shortText" />
+                    <note>Währung in dem das Gehalt ausbezahlt wurde.</note>
+                </property>
+                <property ID="salary.repetitions">
+                    <arity>0-1</arity>
+                    <name>Wiederholungen</name>
+                    <datatypeName target="int" />
+                    <note>Wiederholungen des Gehalts: Ungefähre Anzahl an wiederholten Zahlungen über den gesamten Zeitraum. Zb.: Bei einem Gehalt über ein Jahr das monatlich ausbezahlt wurde 12.</note>
+                </property>
+                <property ID="salary.repetition_note">
+                    <arity>0-1</arity>
+                    <name>Wiederholungsnotiz</name>
+                    <datatypeName target="longText" />
+                    <note>Notiz zu den Wiederholungen des Gehalts.</note>
+                </property>
+                <property ID="salary.type">
+                    <arity>0-1</arity>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryTypes"/>
+                    <note>Typ des Gehalts.</note>
+                </property>
+                <property ID="salary.start_date_written">
+                    <arity>1</arity>
+                    <name>Startdatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Datum mit dem die Zahlungen starteten. Bei einer einmaligen Zahlung Datum dieser Zahlung.</note>
+                </property>
+                <property ID="salary.end_date_written">
+                    <arity>1</arity>
+                    <name>Enddatum</name>
+                    <datatypeName target="shortText" />
+                    <note>Enddatum der Zahlungen. Entfällt bei einmaligen Zahlungen.</note>
+                </property>
+            </properties>
+            <mapping targetLanguage="crm">
+                <className uri="http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount">crm:E97_Monetary_Amount</className>
+            </mapping>
+        </class>
+    </classes>
+    <relations></relations>
+    <vocabularies>
+            <vocab ID="vocabs.courtTypes">
+                <name>Hoftypen</name>
+                <values>
+                    <list>
+                        <item>Hof</item>
+                        <item>Klosterhof</item>
+                        <item>Kaiserhof</item>
+                        <item>Königshof</item>
+                        <item>Bischöflicher Hof</item>
+                        <item>Kurfürstlicher Hof</item>
+                        <item>Erzbischöflicher Hof</item>
+                        <item>Königlicher Hof</item>
+                        <item>Kaiserlicher Hof</item>
+                        <item>Frauenzimmer</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.salaryTypes">
+                <name>Gehaltstypen</name>
+                <values>
+                    <list>
+                        <item>einfach</item>
+                        <item>wiederholend</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.placeType">
+                <name>Ortstypen</name>
+                <values>
+                    <list>
+                        <item>Stadt</item>
+                        <item>Dorf</item>
+                        <item>Burg</item>
+                        <item>Land/Herrschaftskomplex</item>
+                        <item>Landschaft/Region</item>
+                    </list>
+                </values>
+            </vocab>
+    </vocabularies>
+    <datatypes>
+        <datatype ID="shortText">
+            <name>short text</name>
+        </datatype>
+        <datatype ID="choiceField">
+            <name>choice field</name>
+            <note>
+                <p>Choice fields are used to represent a choice between a number of options. The options are represented as a list of strings.</p>
+            </note>
+        </datatype>
+        <datatype ID="float">
+            <name>float</name>
+        </datatype>
+        <datatype ID="int">
+            <name>integer</name>
+        </datatype>
+        <datatype ID="longText">
+            <name>long text</name>
+            <note>
+                <p>Long text is used to represent a text that can be longer than a short text.</p>
+            </note>
+        </datatype>
+    </datatypes>
+    <references>
+        <reference ID="crm">
+            <name>CIDOC CRM v7.1.1</name>
+            <citation key="CIDOC-CRM-7.1.1"><ref uri="https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html">International Committee for Documentation (CIDOC), 2018. CIDOC Conceptual Reference Model (CRM) Schema. Version 7.1.1. Available at: http://www.cidoc-crm.org/</ref></citation>
+        </reference>
+    </references>
+</model>
