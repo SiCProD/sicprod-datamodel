@@ -12,6 +12,7 @@
         <version>0.1</version>
         <changelog>
             <change status="draft" when="2022-10-15" who="MS">First version</change>
+            <change status="draft" when="2022-10-20" who="MS">First public version</change>
         </changelog>
         <audience>EXTERNAL</audience>
         <namespaces>
@@ -299,8 +300,8 @@
                 <property ID="institution.type">
                     <arity>1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" />
-                    <note>Art der institution. ["Kanzlei", "Hofkapelle", "Küche", "(Dom-)Kapitel", "Universität", "Kloster", "Frauenzimmer", "Bistum", "Pfarrei"]</note>
+                    <datatypeName target="choiceField" vocabRef="vocabs.institutionTypes" />
+                    <note>Art der institution.</note>
                 </property>
                 <property ID="institution.start_date_written">
                     <arity>1</arity>
@@ -513,6 +514,23 @@
                         <item>Landschaft/Region</item>
                     </list>
                 </values>
+            </vocab>
+            <vocab ID="vocabs.institutionTypes">
+                <name>Institutionentypen</name>
+                <values>
+                    <list>
+                        <item>Kanzlei</item> 
+                        <item>Hofkapelle</item>
+                        <item>Küche</item>
+                        <item>(Dom-)Kapitel</item>
+                        <item>Universität</item>
+                        <item>Kloster</item>
+                        <item>Frauenzimmer</item>
+                        <item>Bistum</item>
+                        <item>Pfarrei</item>
+                    </list>
+                </values>
+
             </vocab>
     </vocabularies>
     <datatypes>
