@@ -173,14 +173,14 @@
                     <reverseName>hatte teilnehmende Person</reverseName>
                 </relation>
                 <relation ID="PersonRecievedSalary">
-                    <sourceClass target="person">
+                    <sourceClass target="salary">
                         <arity>1</arity>
                     </sourceClass>
-                    <targetClass target="salary">
+                    <targetClass target="person">
                         <arity>1</arity>
                     </targetClass>
                     <name>erhielt Gehalt</name>
-                    <reverseName>hatte Gehaltsempfänger</reverseName>
+                    <reverseName>wurde ausbezahlt an</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
@@ -206,6 +206,18 @@
                     <CHECKME who="MS" when="2022-10-20" status="new">Wieder vielleicht 1-n statt Text Feld</CHECKME>
                 </property>
             </properties>
+            <relations>
+                <relation ID="FunctionIsLocatedAtInstitution">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="institution court">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ist an</name>
+                    <reverseName>hat Funktion</reverseName>
+                </relation>
+            </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</className>
             </mapping>
@@ -304,18 +316,8 @@
                 </property>
             </properties>
             <relations>
-                <relation ID="InstitutionHostsFunction">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
-                    <targetClass target="institution">
-                        <arity>1</arity>
-                    </targetClass>
-                    <name>ist Teil von</name>
-                    <reverseName>inkludiert</reverseName>
-                </relation>
                 <relation ID="InstitutionPaidSalary">
-                    <sourceClass target="person">
+                    <sourceClass target="institution">
                         <arity>1</arity>
                     </sourceClass>
                     <targetClass target="salary">
@@ -369,16 +371,6 @@
                 </property>
             </properties>
             <relations>
-                <relation ID="CourtHostsFunction">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
-                    <targetClass target="court">
-                        <arity>1</arity>
-                    </targetClass>
-                    <name>ist Teil von</name>
-                    <reverseName>inkludiert</reverseName>
-                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
