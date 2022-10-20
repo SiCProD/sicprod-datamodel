@@ -244,8 +244,8 @@
                 <property ID="place.type">
                     <arity>1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" />
-                    <note>Art des Ortes. ["Stadt", "Dorf", "Burg", "Land/Herrschaftskomplex", "Landschaft/Region"]</note>
+                    <datatypeName target="choiceField"  vocabRef="vocabs.placeType"/>
+                    <note>Art des Ortes.</note>
                 </property>
                 <property ID="place.latitude">
                     <arity>1</arity>
@@ -257,7 +257,7 @@
                     <arity>1</arity>
                     <name>Längengrad</name>
                     <datatypeName target="float" />
-                    <note>Längengrad des Ortes. Bei Polygonen wird die Mitte verwendet.The longitude of a place.</note>
+                    <note>Längengrad des Ortes. Bei Polygonen wird die Mitte verwendet.</note>
                 </property>
             </properties>
             <relations>
@@ -354,8 +354,8 @@
                 <property ID="court.type">
                     <arity>1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" />
-                    <note>Art des Hofes. ["Hof", "Klosterhof", "Kaiserhof", "Königshof", "Bischöflicher Hof", "Kurfürstlicher Hof", "Erzbischöflicher Hof", "Königlicher Hof", "Kaiserlicher Hof"]</note>
+                    <datatypeName target="choiceField" vocabRef="vocabs.courtTypes" />
+                    <note>Art des Hofes</note>
                 </property>
                 <property ID="court.start_date_written">
                     <arity>1</arity>
@@ -453,8 +453,8 @@
                 <property ID="salary.type">
                     <arity>0-1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" />
-                    <note>Typ des Gehalts. Mögliche Werte: ["einfach", "wiederholend"]</note>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryTypes"/>
+                    <note>Typ des Gehalts.</note>
                 </property>
                 <property ID="salary.start_date_written">
                     <arity>1</arity>
@@ -475,7 +475,46 @@
         </class>
     </classes>
     <relations></relations>
-    <vocabularies></vocabularies>
+    <vocabularies>
+            <vocab ID="vocabs.courtTypes">
+                <name>Hoftypen</name>
+                <values>
+                    <list>
+                        <item>Hof</item>
+                        <item>Klosterhof</item>
+                        <item>Kaiserhof</item>
+                        <item>Königshof</item>
+                        <item>Bischöflicher Hof</item>
+                        <item>Kurfürstlicher Hof</item>
+                        <item>Erzbischöflicher Hof</item>
+                        <item>Königlicher Hof</item>
+                        <item>Kaiserlicher Hof</item>
+                        <item>Frauenzimmer</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.salaryTypes">
+                <name>Gehaltstypen</name>
+                <values>
+                    <list>
+                        <item>einfach</item>
+                        <item>wiederholend</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.placeType">
+                <name>Ortstypen</name>
+                <values>
+                    <list>
+                        <item>Stadt</item>
+                        <item>Dorf</item>
+                        <item>Burg</item>
+                        <item>Land/Herrschaftskomplex</item>
+                        <item>Landschaft/Region</item>
+                    </list>
+                </values>
+            </vocab>
+    </vocabularies>
     <datatypes>
         <datatype ID="shortText">
             <name>short text</name>

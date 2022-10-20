@@ -50,7 +50,7 @@
                      
                      <td>Documentation generated: </td>
                      
-                     <td>2022-10-20T12:06:27.619056568Z</td>
+                     <td>2022-10-20T13:51:18.034834558Z</td>
                      </tr>
                   </table>
                </header>
@@ -607,7 +607,7 @@
                      
                      <td><a href="#float">float</a></td>
                      
-                     <td>Längengrad des Ortes. Bei Polygonen wird die Mitte verwendet.The longitude of a place.</td>
+                     <td>Längengrad des Ortes. Bei Polygonen wird die Mitte verwendet.</td>
                      </tr>
                   
                   <tr>
@@ -623,9 +623,10 @@
                      
                      <td><a id="place.type"></a><b>Typ</b><br />Cardinality: 1</td>
                      
-                     <td><a href="#choiceField">choice field</a></td>
+                     <td><a href="#choiceField">choice field</a> in
+                        <a href="#vocabs.placeType">Ortstypen</a></td>
                      
-                     <td>Art des Ortes. ["Stadt", "Dorf", "Burg", "Land/Herrschaftskomplex", "Landschaft/Region"]</td>
+                     <td>Art des Ortes.</td>
                      </tr>
                   </table>
                </div>
@@ -838,10 +839,10 @@
                      
                      <td><a id="court.type"></a><b>Typ</b><br />Cardinality: 1</td>
                      
-                     <td><a href="#choiceField">choice field</a></td>
+                     <td><a href="#choiceField">choice field</a> in
+                        <a href="#vocabs.courtTypes">Hoftypen</a></td>
                      
-                     <td>Art des Hofes. ["Hof", "Klosterhof", "Kaiserhof", "Königshof", "Bischöflicher Hof",
-                        "Kurfürstlicher Hof", "Erzbischöflicher Hof", "Königlicher Hof", "Kaiserlicher Hof"]</td>
+                     <td>Art des Hofes</td>
                      </tr>
                   </table>
                </div>
@@ -1035,9 +1036,10 @@
                      
                      <td><a id="salary.type"></a><b>Typ</b><br />Cardinality: 0-1</td>
                      
-                     <td><a href="#choiceField">choice field</a></td>
+                     <td><a href="#choiceField">choice field</a> in
+                        <a href="#vocabs.salaryTypes">Gehaltstypen</a></td>
                      
-                     <td>Typ des Gehalts. Mögliche Werte: ["einfach", "wiederholend"]</td>
+                     <td>Typ des Gehalts.</td>
                      </tr>
                   
                   <tr>
@@ -1184,6 +1186,57 @@
             <p class="subtitle">wurde ausbezahlt von</p>
             
             <p><strong>Cardinality: </strong>1 / 1<br /><strong>Source Class: </strong><a role="class" href="#institution">&lt;INSTITUTION&gt;</a><br /><strong>Target Class: </strong><a role="class" href="#salary">&lt;GEHALT&gt;</a><br /></p>
+            </div>
+         
+         <div class="section">
+            
+            <h2 class="title is-2">Vocabularies</h2>
+            
+            <table class="table">
+               
+               <thead>
+                  
+                  <tr>
+                     
+                     <th>Vocabulary Name</th>
+                     
+                     <th>Example Values</th>
+                     
+                     <th>Remarks</th>
+                     </tr>
+                  </thead>
+               
+               <tbody>
+                  
+                  <tr>
+                     
+                     <td><a id="vocabs.courtTypes"></a>Hoftypen</td>
+                     
+                     <td>Hof / Klosterhof / Kaiserhof / Königshof / Bischöflicher Hof / Kurfürstlicher Hof
+                        / Erzbischöflicher Hof / Königlicher Hof / Kaiserlicher Hof / Frauenzimmer</td>
+                     
+                     <td></td>
+                     </tr>
+                  
+                  <tr>
+                     
+                     <td><a id="vocabs.salaryTypes"></a>Gehaltstypen</td>
+                     
+                     <td>einfach / wiederholend</td>
+                     
+                     <td></td>
+                     </tr>
+                  
+                  <tr>
+                     
+                     <td><a id="vocabs.placeType"></a>Ortstypen</td>
+                     
+                     <td>Stadt / Dorf / Burg / Land/Herrschaftskomplex / Landschaft/Region</td>
+                     
+                     <td></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          
          <div class="section">
