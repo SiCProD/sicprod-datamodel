@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:/home/dschopper/repo/modeller/model.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<class ID="">
+    <name></name>
+    <definition>
+        <p></p>
+    </definition>
+    <examples>
+    </examples>
+    <properties>
+        <property ID="">
+            <arity></arity>
+            <name></name>
+            <datatypeRef target=""></datatypeRef>
+            <note>
+                <p></p>
+            </note>
+        </property>
+    </properties>
+    <mapping targetLanguage="">
+        <p></p>
+        <code></code>
+    </mapping>
+    <note>
+        <p></p>
+    </note>
+</class>
