@@ -7,7 +7,6 @@ from apis_core.apis_entities.models import TempEntityClass
 @reversion.register(follow=["tempentityclass_ptr"])
 class person(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     first_name = models.CharField(max_length=1024, blank=True, null=True)
     GENDER_CHOICES = (("männlich", "männlich"), ("weiblich", "weiblich"), ("unbekannt", "unbekannt"), )
     gender = models.CharField(max_length=9, choices=GENDER_CHOICES, blank=True)
@@ -19,14 +18,12 @@ class person(TempEntityClass):
 @reversion.register(follow=["tempentityclass_ptr"])
 class function(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     alternative_label = models.TextField(blank=True, null=True)
     
 
 @reversion.register(follow=["tempentityclass_ptr"])
 class place(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     alternative_label = models.TextField(blank=True, null=True)
     TYPE_CHOICES = (("Stadt", "Stadt"), ("Dorf", "Dorf"), ("Burg", "Burg"), ("Land/Herrschaftskomplex", "Land/Herrschaftskomplex"), ("Landschaft/Region", "Landschaft/Region"), )
     type = models.CharField(max_length=23, choices=TYPE_CHOICES, blank=True)
@@ -37,7 +34,6 @@ class place(TempEntityClass):
 @reversion.register(follow=["tempentityclass_ptr"])
 class institution(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     alternative_label = models.TextField(blank=True, null=True)
     TYPE_CHOICES = (("Kanzlei", "Kanzlei"), ("Hofkapelle", "Hofkapelle"), ("Küche", "Küche"), ("(Dom-)Kapitel", "(Dom-)Kapitel"), ("Universität", "Universität"), ("Kloster", "Kloster"), ("Frauenzimmer", "Frauenzimmer"), ("Bistum", "Bistum"), ("Pfarrei", "Pfarrei"), )
     type = models.CharField(max_length=13, choices=TYPE_CHOICES, blank=True)
@@ -46,7 +42,6 @@ class institution(TempEntityClass):
 @reversion.register(follow=["tempentityclass_ptr"])
 class court(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     alternative_label = models.TextField(blank=True, null=True)
     TYPE_CHOICES = (("Hof", "Hof"), ("Klosterhof", "Klosterhof"), ("Kaiserhof", "Kaiserhof"), ("Königshof", "Königshof"), ("Bischöflicher Hof", "Bischöflicher Hof"), ("Kurfürstlicher Hof", "Kurfürstlicher Hof"), ("Erzbischöflicher Hof", "Erzbischöflicher Hof"), ("Königlicher Hof", "Königlicher Hof"), ("Kaiserlicher Hof", "Kaiserlicher Hof"), ("Frauenzimmer", "Frauenzimmer"), )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, blank=True)
@@ -55,7 +50,6 @@ class court(TempEntityClass):
 @reversion.register(follow=["tempentityclass_ptr"])
 class event(TempEntityClass):
     # auto generated from model xml
-    name = models.CharField(max_length=1024, blank=True, null=True)
     alternative_label = models.TextField(blank=True, null=True)
     TYPE_CHOICES = (("Hochzeit", "Hochzeit"), ("Landtag", "Landtag"), ("Fest/Turnier", "Fest/Turnier"), ("Schlacht", "Schlacht"), ("Gesandtschaft/Reise", "Gesandtschaft/Reise"), ("Taufe", "Taufe"), ("Amtseinsetzung", "Amtseinsetzung"), ("Reichstag", "Reichstag"), )
     type = models.CharField(max_length=19, choices=TYPE_CHOICES, blank=True)
@@ -186,7 +180,7 @@ def construct_properties():
         name_reverse="hat Funktion",
     )
     ist_an.subj_class.add(ContentType.objects.get(model=function.__name__))
- 
+    
     ist_an.obj_class.add(ContentType.objects.get(model=institution.__name__))
     ist_an.obj_class.add(ContentType.objects.get(model=court.__name__))
     
