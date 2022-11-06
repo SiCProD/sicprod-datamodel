@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../modeller/model.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="model.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <model xmlns:xi="http://www.w3.org/2001/XInclude">
     <meta>
         <title>SiCProD Data Model</title>
@@ -54,13 +54,13 @@
                 <property ID="person.gender">
                     <arity>1</arity>
                     <name>Geschlecht</name>
-                    <datatypeName target="choiceField" />
+                    <datatypeName target="choiceField" vocabRef="vocabs.gender"/>
                     <note>Geschlecht der Person.</note>
                 </property>
                 <property ID="person.class_affiliation">
                     <arity>1</arity>
                     <name>Klassenzugehörigkeit</name>
-                    <datatypeName target="choiceField" />
+                    <datatypeName target="choiceField" vocabRef="vocabs.klasse" />
                     <note>Klassenzugehörigkeit einer Person.</note>
                     <CHECKME who="MS" when="2022-10-20" status="new">Reicht es hier die höchste Klassenzugehörigkeit abzubilden oder brauchen wir 1-n Relationen?</CHECKME>
                 </property>
@@ -400,7 +400,7 @@
                 <property ID="event.type">
                     <arity>1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" />
+                    <datatypeName target="choiceField" vocabRef="vocabs.eventType" />
                     <note>Typ des Ereignisses.</note>
                 </property>
                 <property ID="event.start_date_written">
@@ -477,6 +477,44 @@
     </classes>
     <relations></relations>
     <vocabularies>
+            <vocab ID="vocabs.gender">
+                <name>Geschlecht</name>
+                <values>
+                    <list>
+                        <item>männlich</item>
+                        <item>weiblich</item>
+                        <item>unbekannt</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.klasse">
+                <name>Klassenzugehörigkeit</name>
+                <values>
+                    <list>
+                        <item>Hoher Adel</item>
+                        <item>Niederer Adel</item>
+                        <item>Klerus</item>
+                        <item>Bürgertum</item>
+                        <item>Bauerntum</item>
+                        <item>Gesinde</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.eventType">
+                <name>Ereignistyp</name>
+                <values>
+                    <list>
+                        <item>Hochzeit</item>
+                        <item>Landtag</item>
+                        <item>Fest/Turnier</item>
+                        <item>Schlacht</item>
+                        <item>Gesandtschaft/Reise</item>
+                        <item>Taufe</item>
+                        <item>Amtseinsetzung</item>
+                        <item>Reichstag</item>
+                    </list>
+                </values>
+            </vocab>
             <vocab ID="vocabs.courtTypes">
                 <name>Hoftypen</name>
                 <values>
@@ -536,6 +574,9 @@
     <datatypes>
         <datatype ID="shortText">
             <name>short text</name>
+            <mapping targetLanguage="django" level="exactMatch" version="4.1.2">
+                <className>django.db.models.CharField</className>
+            </mapping>
         </datatype>
         <datatype ID="choiceField">
             <name>choice field</name>
@@ -560,6 +601,10 @@
         <reference ID="crm">
             <name>CIDOC CRM v7.1.1</name>
             <citation key="CIDOC-CRM-7.1.1"><ref uri="https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html">International Committee for Documentation (CIDOC), 2018. CIDOC Conceptual Reference Model (CRM) Schema. Version 7.1.1. Available at: http://www.cidoc-crm.org/</ref></citation>
+        </reference>
+        <reference ID="django">
+            <name>Django</name>
+            <citation key="django4.2.2">Django Software Foundation. (2022). Django Version 4.1.2</citation>
         </reference>
     </references>
 </model>

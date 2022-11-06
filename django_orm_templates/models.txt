@@ -1,0 +1,20 @@
+import reversion
+from django.contrib.contenttypes.models import ContentType
+from django.db import models
+from apis_core.apis_entities.models import TempEntityClass
+
+{% for entity in entities %}
+{{entity}}
+{% endfor %}
+
+def construct_properties():
+
+    from apis_core.apis_vocabularies.models import TextType
+    from apis_core.apis_metainfo.models import Collection
+    from apis_core.apis_relations.models import Property
+    from apis_highlighter.models import AnnotationProject, Project
+    from django.contrib.auth.models import User
+
+    {% for rel in relations %}
+    {{rel}}
+    {% endfor %}
