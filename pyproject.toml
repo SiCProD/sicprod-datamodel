@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "apis-rdf-datamodel-creator"
+version = "0.1.0"
+description = ""
+authors = ["Matthias Schlögl <matthias.schloegl@oeaw.ac.at>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "apis_rdf_datamodel_creator"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lxml = "^4.9.1"
+Jinja2 = "^3.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,5 @@
+@reversion.register(follow=["tempentityclass_ptr"])
+class {{cls}}({{base_cls}}):
+    # auto generated from model xml
+    {% for prop in properties %}{{prop}}
+    {% endfor %}
