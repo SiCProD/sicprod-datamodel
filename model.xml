@@ -9,10 +9,11 @@
                 <contact>matthias.schloegl@oeaw.ac.at</contact>
             </person>
         </contributor>
-        <version>0.1</version>
+        <version>0.2</version>
         <changelog>
             <change status="draft" when="2022-10-15" who="MS">First version</change>
             <change status="draft" when="2022-10-20" who="MS">First public version</change>
+            <change status="draft" when="2022-11-06" who="MS">Updated with relations and vocab entries</change>
         </changelog>
         <audience>EXTERNAL</audience>
         <namespaces>
@@ -217,6 +218,16 @@
                     </targetClass>
                     <name>ist an</name>
                     <reverseName>hat Funktion</reverseName>
+                </relation>
+                <relation ID="FunctionIsHoldBy">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>wird bekleidet von</name>
+                    <reverseName>hat Funktion inne</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
