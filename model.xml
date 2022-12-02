@@ -481,6 +481,18 @@
                     <note>Enddatum der Zahlungen. Entfällt bei einmaligen Zahlungen.</note>
                 </property>
             </properties>
+            <relations>
+                <relation ID="SalaryPaidTo">
+                    <sourceClass target="salary">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="function">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>wurde ausbezahlt an</name>
+                    <reverseName>erhielt</reverseName>
+                </relation>
+            </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount">crm:E97_Monetary_Amount</className>
             </mapping>
