@@ -9,11 +9,12 @@
                 <contact>matthias.schloegl@oeaw.ac.at</contact>
             </person>
         </contributor>
-        <version>0.2</version>
+        <version>0.3</version>
         <changelog>
             <change status="draft" when="2022-10-15" who="MS">First version</change>
             <change status="draft" when="2022-10-20" who="MS">First public version</change>
             <change status="draft" when="2022-11-06" who="MS">Updated with relations and vocab entries</change>
+            <change status="draft" when="2022-12-02" who="MS">Updated with modifications discussed after first test</change>
         </changelog>
         <audience>EXTERNAL</audience>
         <namespaces>
