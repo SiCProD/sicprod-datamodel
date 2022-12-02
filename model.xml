@@ -58,13 +58,6 @@
                     <datatypeName target="choiceField" vocabRef="vocabs.gender"/>
                     <note>Geschlecht der Person.</note>
                 </property>
-                <property ID="person.class_affiliation">
-                    <arity>1</arity>
-                    <name>Klassenzugehörigkeit</name>
-                    <datatypeName target="choiceField" vocabRef="vocabs.klasse" />
-                    <note>Klassenzugehörigkeit einer Person.</note>
-                    <CHECKME who="MS" when="2022-10-20" status="new">Reicht es hier die höchste Klassenzugehörigkeit abzubilden oder brauchen wir 1-n Relationen?</CHECKME>
-                </property>
                 <property ID="person.alternative_label">
                     <arity>1</arity>
                     <name>Alternativer Name</name>
