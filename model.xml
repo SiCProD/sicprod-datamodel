@@ -184,6 +184,26 @@
                     <name>erhielt Gehalt</name>
                     <reverseName>wurde ausbezahlt an</reverseName>
                 </relation>
+                <relation ID="PersonBornIn">
+                    <sourceClass target="person">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>geboren in</name>
+                    <reverseName>Geburtsort von</reverseName>
+                </relation>
+                <relation ID="PersonDiedIn">
+                    <sourceClass target="person">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>gestorben in</name>
+                    <reverseName>Sterbeort von</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
