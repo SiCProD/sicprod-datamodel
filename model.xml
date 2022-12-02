@@ -338,6 +338,16 @@
                     <name>zahlte aus</name>
                     <reverseName>wurde ausbezahlt von</reverseName>
                 </relation>
+                <relation ID="InstitutionlocatedIn">
+                    <sourceClass target="institution">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ist gelegen in</name>
+                    <reverseName>inkludiert</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
