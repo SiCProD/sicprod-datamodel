@@ -447,6 +447,18 @@
                     <note>Datum zu dem das Ereignis endete.</note>
                 </property>
             </properties>
+            <relations>
+                <relation ID="EventTookPlaceAt">
+                    <sourceClass target="event">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>fand statt in</name>
+                    <reverseName>inkludierte</reverseName>
+                </relation>
+            </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E5_Event">crm:E5_Event</className>
                 <note>Event for SiCProD should subclass E5_Event rather than use a owl:sameAs link</note>
