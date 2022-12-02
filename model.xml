@@ -114,6 +114,36 @@
                     <name>hat Familienbeziehung zu</name>
                     <reverseName>hat Familienbeziehung zu</reverseName>
                 </relation>
+                <relation ID="PersonIsFatherOf">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Elternteil von</name>
+                    <reverseName>ist Kind von</reverseName>
+                </relation>
+                <relation ID="PersonIsBrotherOf">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Bruder/Schwester von</name>
+                    <reverseName>ist Bruder/Schwester von</reverseName>
+                </relation>
+                <relation ID="PersonIsSonOf">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Kind von</name>
+                    <reverseName>ist Elternteil von</reverseName>
+                </relation>
                 <relation ID="PersonHasMarrigeWith">
                     <sourceClass target="person">
                         <arity>0-n</arity>
