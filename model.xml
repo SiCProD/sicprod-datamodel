@@ -229,6 +229,16 @@
                     <name>wird bekleidet von</name>
                     <reverseName>hat Funktion inne</reverseName>
                 </relation>
+                <relation ID="FunctionIsSubordinaryOf">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="function">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ist untergeordnet</name>
+                    <reverseName>hat untergeordnete Funktion</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</className>
