@@ -214,6 +214,16 @@
                     <name>erhielt Gehalt</name>
                     <reverseName>wurde ausbezahlt an</reverseName>
                 </relation>
+                <relation ID="PersonAuthorizedSalary">
+                    <sourceClass target="person">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>weist an</name>
+                    <reverseName>auf Anweisung von</reverseName>
+                </relation>
                 <relation ID="PersonBornIn">
                     <sourceClass target="person">
                         <arity>1</arity>
