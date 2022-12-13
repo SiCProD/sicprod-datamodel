@@ -546,11 +546,11 @@
                     <datatypeName target="shortText" />
                     <note>Währung in dem das Gehalt ausbezahlt wurde.</note>
                 </property>
-                <property ID="salary.repetitions">
+                <property ID="salary.typ">
                     <arity>0-1</arity>
-                    <name>Wiederholungen</name>
-                    <datatypeName target="int" />
-                    <note>Wiederholungen des Gehalts: Ungefähre Anzahl an wiederholten Zahlungen über den gesamten Zeitraum. Zb.: Bei einem Gehalt über ein Jahr das monatlich ausbezahlt wurde 12.</note>
+                    <name>Typ</name>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryType" />
+                    <note>Art des Gehalts.</note>
                 </property>
                 <property ID="salary.repetition_note">
                     <arity>0-1</arity>
@@ -558,10 +558,10 @@
                     <datatypeName target="longText" />
                     <note>Notiz zu den Wiederholungen des Gehalts.</note>
                 </property>
-                <property ID="salary.type">
+                <property ID="salary.repetitionType">
                     <arity>0-1</arity>
-                    <name>Typ</name>
-                    <datatypeName target="choiceField" vocabRef="vocabs.salaryTypes"/>
+                    <name>Typ Wiederholungen</name>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryRepetitionTypes"/>
                     <note>Typ des Gehalts.</note>
                 </property>
                 <property ID="salary.start_date_written">
@@ -638,12 +638,24 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.salaryTypes">
-                <name>Gehaltstypen</name>
+            <vocab ID="vocabs.salaryRepetitionTypes">
+                <name>Gehaltstypen Wiederholungen</name>
                 <values>
                     <list>
                         <item>einfach</item>
                         <item>wiederholend</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.salaryTyp">
+                <name>Gehaltstypen</name>
+                <values>
+                    <list>
+                        <item>Sold</item>
+                        <item>Zehrung</item>
+                        <item>Provision</item>
+                        <item>Kredit</item>
+                        <item>Sonstiges</item>
                     </list>
                 </values>
             </vocab>
