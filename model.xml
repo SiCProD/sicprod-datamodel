@@ -606,19 +606,6 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.klasse">
-                <name>Klassenzugehörigkeit</name>
-                <values>
-                    <list>
-                        <item>Hoher Adel</item>
-                        <item>Niederer Adel</item>
-                        <item>Klerus</item>
-                        <item>Bürgertum</item>
-                        <item>Bauerntum</item>
-                        <item>Gesinde</item>
-                    </list>
-                </values>
-            </vocab>
             <vocab ID="vocabs.eventType">
                 <name>Ereignistyp</name>
                 <values>
@@ -665,10 +652,23 @@
                 <values>
                     <list>
                         <item>Stadt</item>
-                        <item>Dorf</item>
-                        <item>Burg</item>
+                        <item>Dorf/Nachbarschaft/Gemein/Siedlung/Weiler</item>
+                        <item>Burg/Schloss</item>
                         <item>Land/Herrschaftskomplex</item>
                         <item>Landschaft/Region</item>
+                        <item>Lehen</item>
+                        <item>Haus/Hof</item>
+                        <item>Gericht</item>
+                        <item>Kloster</item>
+                        <item>Gewässer</item>
+                        <item>Grundherrschaft</item>
+                        <item>Hofmark</item>
+                        <item>Tal</item>
+                        <item>Berg</item>
+                        <item>Bergrevier</item>
+                        <item>Pflege</item>
+                        <item>(Land-)Vogtei</item>
+                        <item>Propstei</item>
                     </list>
                 </values>
             </vocab>
