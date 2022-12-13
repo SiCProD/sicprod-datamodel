@@ -198,6 +198,16 @@
                     <name>hat Geschäftsbeziehung zu</name>
                     <reverseName>hat Geschäftsbeziehung zu</reverseName>
                 </relation>
+                <relation ID="PersonIsCustodianOfPerson">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Vormund von</name>
+                    <reverseName>ist Mündel von</reverseName>
+                </relation>
                 <relation ID="PersonWasMemberOfInstitution">
                     <sourceClass target="person">
                         <arity>0-n</arity>
@@ -679,7 +689,7 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.salaryTyp">
+            <vocab ID="vocabs.salaryType">
                 <name>Gehaltstypen</name>
                 <values>
                     <list>
