@@ -218,6 +218,16 @@
                     <name>war tätig an</name>
                     <reverseName>hatte tätige Person</reverseName>
                 </relation>
+                <relation ID="PersonGetsPensionFromInstitution">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="institution">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Pfründner von</name>
+                    <reverseName>hat Pfründner</reverseName>
+                </relation>
                 <relation ID="PersonTookPartInEvent">
                     <sourceClass target="person">
                         <arity>1</arity>
