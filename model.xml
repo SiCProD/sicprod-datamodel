@@ -689,7 +689,7 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.salaryTyp">
+            <vocab ID="vocabs.salaryType">
                 <name>Gehaltstypen</name>
                 <values>
                     <list>
