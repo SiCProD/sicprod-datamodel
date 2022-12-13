@@ -10,8 +10,6 @@ class person(TempEntityClass):
     first_name = models.CharField(max_length=1024, blank=True, null=True)
     GENDER_CHOICES = (("männlich", "männlich"), ("weiblich", "weiblich"), ("unbekannt", "unbekannt"), )
     gender = models.CharField(max_length=9, choices=GENDER_CHOICES, blank=True)
-    CLASS_AFFILIATION_CHOICES = (("Hoher Adel", "Hoher Adel"), ("Niederer Adel", "Niederer Adel"), ("Klerus", "Klerus"), ("Bürgertum", "Bürgertum"), ("Bauerntum", "Bauerntum"), ("Gesinde", "Gesinde"), )
-    class_affiliation = models.CharField(max_length=13, choices=CLASS_AFFILIATION_CHOICES, blank=True)
     alternative_label = models.TextField(blank=True, null=True)
     
 
@@ -112,6 +110,33 @@ def construct_properties():
     hat_familienbeziehung_zu.obj_class.add(ContentType.objects.get(model=person.__name__))
     
     
+    ist_elternteil_von = Property.objects.create(
+        name="ist Elternteil von",
+        name_reverse="ist Kind von",
+    )
+    ist_elternteil_von.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    ist_elternteil_von.obj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    
+    ist_bruder_schwester_von = Property.objects.create(
+        name="ist Bruder/Schwester von",
+        name_reverse="ist Bruder/Schwester von",
+    )
+    ist_bruder_schwester_von.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    ist_bruder_schwester_von.obj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    
+    ist_kind_von = Property.objects.create(
+        name="ist Kind von",
+        name_reverse="ist Elternteil von",
+    )
+    ist_kind_von.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    ist_kind_von.obj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    
     hat_ehe_mit = Property.objects.create(
         name="hat Ehe mit",
         name_reverse="hat Ehe mit",
@@ -175,6 +200,33 @@ def construct_properties():
     erhielt_gehalt.obj_class.add(ContentType.objects.get(model=person.__name__))
     
     
+    weist_an = Property.objects.create(
+        name="weist an",
+        name_reverse="auf Anweisung von",
+    )
+    weist_an.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    weist_an.obj_class.add(ContentType.objects.get(model=salary.__name__))
+    
+    
+    geboren_in = Property.objects.create(
+        name="geboren in",
+        name_reverse="Geburtsort von",
+    )
+    geboren_in.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    geboren_in.obj_class.add(ContentType.objects.get(model=place.__name__))
+    
+    
+    gestorben_in = Property.objects.create(
+        name="gestorben in",
+        name_reverse="Sterbeort von",
+    )
+    gestorben_in.subj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    gestorben_in.obj_class.add(ContentType.objects.get(model=place.__name__))
+    
+    
     ist_an = Property.objects.create(
         name="ist an",
         name_reverse="hat Funktion",
@@ -183,6 +235,33 @@ def construct_properties():
     
     ist_an.obj_class.add(ContentType.objects.get(model=institution.__name__))
     ist_an.obj_class.add(ContentType.objects.get(model=court.__name__))
+    
+    
+    wird_bekleidet_von = Property.objects.create(
+        name="wird bekleidet von",
+        name_reverse="hat Funktion inne",
+    )
+    wird_bekleidet_von.subj_class.add(ContentType.objects.get(model=function.__name__))
+    
+    wird_bekleidet_von.obj_class.add(ContentType.objects.get(model=person.__name__))
+    
+    
+    ging_hervor_aus = Property.objects.create(
+        name="ging hervor aus",
+        name_reverse="war Vorgänger von",
+    )
+    ging_hervor_aus.subj_class.add(ContentType.objects.get(model=function.__name__))
+    
+    ging_hervor_aus.obj_class.add(ContentType.objects.get(model=function.__name__))
+    
+    
+    ist_untergeordnet = Property.objects.create(
+        name="ist untergeordnet",
+        name_reverse="hat untergeordnete Funktion",
+    )
+    ist_untergeordnet.subj_class.add(ContentType.objects.get(model=function.__name__))
+    
+    ist_untergeordnet.obj_class.add(ContentType.objects.get(model=function.__name__))
     
     
     teil_von = Property.objects.create(
@@ -201,5 +280,32 @@ def construct_properties():
     zahlte_aus.subj_class.add(ContentType.objects.get(model=institution.__name__))
     
     zahlte_aus.obj_class.add(ContentType.objects.get(model=salary.__name__))
+    
+    
+    ist_gelegen_in = Property.objects.create(
+        name="ist gelegen in",
+        name_reverse="inkludiert",
+    )
+    ist_gelegen_in.subj_class.add(ContentType.objects.get(model=institution.__name__))
+    
+    ist_gelegen_in.obj_class.add(ContentType.objects.get(model=place.__name__))
+    
+    
+    fand_statt_in = Property.objects.create(
+        name="fand statt in",
+        name_reverse="inkludierte",
+    )
+    fand_statt_in.subj_class.add(ContentType.objects.get(model=event.__name__))
+    
+    fand_statt_in.obj_class.add(ContentType.objects.get(model=place.__name__))
+    
+    
+    wurde_ausbezahlt_an = Property.objects.create(
+        name="wurde ausbezahlt an",
+        name_reverse="erhielt",
+    )
+    wurde_ausbezahlt_an.subj_class.add(ContentType.objects.get(model=salary.__name__))
+    
+    wurde_ausbezahlt_an.obj_class.add(ContentType.objects.get(model=function.__name__))
     
     
