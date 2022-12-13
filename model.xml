@@ -88,6 +88,26 @@
                     <name>besitzt</name>
                     <reverseName>Besitzer von</reverseName>
                 </relation>
+                <relation ID="PersonIsWorkingInPlace">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist tätig in</name>
+                    <reverseName>ist Tätigkeitsort von</reverseName>
+                </relation>
+                <relation ID="PersonPlaceOfResidence">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hält sich auf in</name>
+                    <reverseName>ist Aufenthaltsort von</reverseName>
+                </relation>
                 <relation ID="PersonHasCorrespondanceWith">
                     <sourceClass target="person">
                         <arity>0-n</arity>
@@ -187,6 +207,26 @@
                     </targetClass>
                     <name>Mitglied von</name>
                     <reverseName>hatte Mitglied</reverseName>
+                </relation>
+                <relation ID="PersonWasActiveInInstitution">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="institution">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>war tätig an</name>
+                    <reverseName>hatte tätige Person</reverseName>
+                </relation>
+                <relation ID="PersonGetsPensionFromInstitution">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="institution">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist Pfründner von</name>
+                    <reverseName>hat Pfründner</reverseName>
                 </relation>
                 <relation ID="PersonTookPartInEvent">
                     <sourceClass target="person">
@@ -302,6 +342,16 @@
                     </targetClass>
                     <name>ist untergeordnet</name>
                     <reverseName>hat untergeordnete Funktion</reverseName>
+                </relation>
+                <relation ID="FunctionWasLocatedIn">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ausgeübt in</name>
+                    <reverseName>war Ausübungsort von</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
@@ -534,34 +584,16 @@
                 <p>Ein Gehalt ist die Menge an Geld die eine Person als Gegenleistung erhalten hat. Das Gehalt muss keine wiederkehrende Zahlung sein.</p>
             </definition>
             <properties>
-                <property ID="salary.amount">
-                    <arity>0-1</arity>
-                    <name>Summe</name>
-                    <datatypeName target="float" />
-                    <note>Die ausbezahlte Summe.</note>
-                </property>
-                <property ID="salary.currency">
-                    <arity>0-1</arity>
-                    <name>Währung</name>
-                    <datatypeName target="shortText" />
-                    <note>Währung in dem das Gehalt ausbezahlt wurde.</note>
-                </property>
-                <property ID="salary.repetitions">
-                    <arity>0-1</arity>
-                    <name>Wiederholungen</name>
-                    <datatypeName target="int" />
-                    <note>Wiederholungen des Gehalts: Ungefähre Anzahl an wiederholten Zahlungen über den gesamten Zeitraum. Zb.: Bei einem Gehalt über ein Jahr das monatlich ausbezahlt wurde 12.</note>
-                </property>
-                <property ID="salary.repetition_note">
-                    <arity>0-1</arity>
-                    <name>Wiederholungsnotiz</name>
-                    <datatypeName target="longText" />
-                    <note>Notiz zu den Wiederholungen des Gehalts.</note>
-                </property>
-                <property ID="salary.type">
+                <property ID="salary.typ">
                     <arity>0-1</arity>
                     <name>Typ</name>
-                    <datatypeName target="choiceField" vocabRef="vocabs.salaryTypes"/>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryType" />
+                    <note>Art des Gehalts.</note>
+                </property>
+                <property ID="salary.repetitionType">
+                    <arity>0-1</arity>
+                    <name>Typ Wiederholungen</name>
+                    <datatypeName target="choiceField" vocabRef="vocabs.salaryRepetitionTypes"/>
                     <note>Typ des Gehalts.</note>
                 </property>
                 <property ID="salary.start_date_written">
@@ -606,19 +638,6 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.klasse">
-                <name>Klassenzugehörigkeit</name>
-                <values>
-                    <list>
-                        <item>Hoher Adel</item>
-                        <item>Niederer Adel</item>
-                        <item>Klerus</item>
-                        <item>Bürgertum</item>
-                        <item>Bauerntum</item>
-                        <item>Gesinde</item>
-                    </list>
-                </values>
-            </vocab>
             <vocab ID="vocabs.eventType">
                 <name>Ereignistyp</name>
                 <values>
@@ -651,12 +670,24 @@
                     </list>
                 </values>
             </vocab>
-            <vocab ID="vocabs.salaryTypes">
-                <name>Gehaltstypen</name>
+            <vocab ID="vocabs.salaryRepetitionTypes">
+                <name>Gehaltstypen Wiederholungen</name>
                 <values>
                     <list>
                         <item>einfach</item>
                         <item>wiederholend</item>
+                    </list>
+                </values>
+            </vocab>
+            <vocab ID="vocabs.salaryTyp">
+                <name>Gehaltstypen</name>
+                <values>
+                    <list>
+                        <item>Sold</item>
+                        <item>Zehrung</item>
+                        <item>Provision</item>
+                        <item>Kredit</item>
+                        <item>Sonstiges</item>
                     </list>
                 </values>
             </vocab>
@@ -665,10 +696,23 @@
                 <values>
                     <list>
                         <item>Stadt</item>
-                        <item>Dorf</item>
-                        <item>Burg</item>
+                        <item>Dorf/Nachbarschaft/Gemein/Siedlung/Weiler</item>
+                        <item>Burg/Schloss</item>
                         <item>Land/Herrschaftskomplex</item>
                         <item>Landschaft/Region</item>
+                        <item>Lehen</item>
+                        <item>Haus/Hof</item>
+                        <item>Gericht</item>
+                        <item>Kloster</item>
+                        <item>Gewässer</item>
+                        <item>Grundherrschaft</item>
+                        <item>Hofmark</item>
+                        <item>Tal</item>
+                        <item>Berg</item>
+                        <item>Bergrevier</item>
+                        <item>Pflege</item>
+                        <item>(Land-)Vogtei</item>
+                        <item>Propstei</item>
                     </list>
                 </values>
             </vocab>

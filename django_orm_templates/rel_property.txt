@@ -1,8 +1,12 @@
-{{name|lower|replace(" ", "_")}} = Property.objects.create(
+{{name|lower|replace(" ", "_")|replace("/", "_")}} = Property.objects.get_or_create(
         name="{{name}}",
         name_reverse="{{name_reverse}}",
-    )
-    {% for subj in subjects %}{{name|lower|replace(" ", "_")}}.subj_class.add(ContentType.objects.get(model={{subj}}.__name__))
+    )[0]
+    {{name|lower|replace(" ", "_")|replace("/", "_")}}.subj_class.clear()
+    {% for subj in subjects %}
+    {{name|lower|replace(" ", "_")|replace("/", "_")}}.subj_class.add(ContentType.objects.get(model={{subj}}.__name__))
     {% endfor %}
-    {% for obj in objects %}{{name|lower|replace(" ", "_")}}.obj_class.add(ContentType.objects.get(model={{obj}}.__name__))
+    {{name|lower|replace(" ", "_")|replace("/", "_")}}.obj_class.clear()
+    {% for obj in objects %}
+    {{name|lower|replace(" ", "_")|replace("/", "_")}}.obj_class.add(ContentType.objects.get(model={{obj}}.__name__))
     {% endfor %}
