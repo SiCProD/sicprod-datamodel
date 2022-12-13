@@ -313,6 +313,16 @@
                     <name>ist untergeordnet</name>
                     <reverseName>hat untergeordnete Funktion</reverseName>
                 </relation>
+                <relation ID="FunctionWasLocatedIn">
+                    <sourceClass target="function">
+                        <arity>1</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ausgeübt in</name>
+                    <reverseName>war Ausübungsort von</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E55_Type">crm:E55_Type</className>
