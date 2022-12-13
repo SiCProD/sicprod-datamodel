@@ -88,6 +88,26 @@
                     <name>besitzt</name>
                     <reverseName>Besitzer von</reverseName>
                 </relation>
+                <relation ID="PersonIsWorkingInPlace">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>ist tätig in</name>
+                    <reverseName>ist Tätigkeitsort von</reverseName>
+                </relation>
+                <relation ID="PersonPlaceOfResidence">
+                    <sourceClass target="person">
+                        <arity>0-n</arity>
+                    </sourceClass>
+                    <targetClass target="place">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>hält sich auf in</name>
+                    <reverseName>ist Aufenthaltsort von</reverseName>
+                </relation>
                 <relation ID="PersonHasCorrespondanceWith">
                     <sourceClass target="person">
                         <arity>0-n</arity>
