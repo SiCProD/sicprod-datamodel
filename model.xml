@@ -534,29 +534,11 @@
                 <p>Ein Gehalt ist die Menge an Geld die eine Person als Gegenleistung erhalten hat. Das Gehalt muss keine wiederkehrende Zahlung sein.</p>
             </definition>
             <properties>
-                <property ID="salary.amount">
-                    <arity>0-1</arity>
-                    <name>Summe</name>
-                    <datatypeName target="float" />
-                    <note>Die ausbezahlte Summe.</note>
-                </property>
-                <property ID="salary.currency">
-                    <arity>0-1</arity>
-                    <name>Währung</name>
-                    <datatypeName target="shortText" />
-                    <note>Währung in dem das Gehalt ausbezahlt wurde.</note>
-                </property>
                 <property ID="salary.typ">
                     <arity>0-1</arity>
                     <name>Typ</name>
                     <datatypeName target="choiceField" vocabRef="vocabs.salaryType" />
                     <note>Art des Gehalts.</note>
-                </property>
-                <property ID="salary.repetition_note">
-                    <arity>0-1</arity>
-                    <name>Wiederholungsnotiz</name>
-                    <datatypeName target="longText" />
-                    <note>Notiz zu den Wiederholungen des Gehalts.</note>
                 </property>
                 <property ID="salary.repetitionType">
                     <arity>0-1</arity>
