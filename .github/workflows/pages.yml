@@ -1,0 +1,54 @@
+#Github workflow for publishing sicprod pages
+#
+#SPDX-FileCopyrightText: 2022 Birger Schacht
+#SPDX-License-Identifier: MIT
+
+name: "Build sicprod webpage on push to model.xml"
+
+on:
+  push:
+    branches: main
+    paths: model.xml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: "Build and deploy sicprod webpage"
+    runs-on: ubuntu-22.04
+
+    steps:
+     - name: Setup Podman
+       run: |
+         sudo apt update
+         sudo apt-get -y install podman
+     - name: Checkout modeller repository
+       uses: actions/checkout@v3
+       with:
+         repository: dasch124/modeller
+         path: modeller
+     - name: Checkout sicprod repository
+       uses: actions/checkout@v3
+       with:
+         path: sicprod
+     - name: Build modeller
+       run: |
+          podman build --tag modeller -f modeller/Dockerfile
+     - name: Run modeller
+       run: |
+          podman run -v "${PWD}/sicprod":/tmp/data modeller /tmp/modeller/build.sh -a generateDocs -i /tmp/data/model.xml -o index
+     - name: Checkout pages branch
+       uses: actions/checkout@v3
+       with:
+         path: sicprod-pages
+         ref: pages
+     - name: Commit new index.html
+       run: |
+         cd sicprod-pages
+         cp "$GITHUB_WORKSPACE/sicprod/index.html" .
+         git config user.name github-actions
+         git config user.email github-actions@github.com
+         git add index.html
+         git commit -m "Updated index.html"
+         git push --set-upstream origin pages
