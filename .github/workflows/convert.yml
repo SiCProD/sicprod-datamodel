@@ -1,0 +1,61 @@
+#Github workflow for publishing sicprod pages
+#
+#SPDX-FileCopyrightText: 2022 Birger Schacht
+#SPDX-License-Identifier: MIT
+
+name: "Build Django models.py and push to ontologies repo"
+
+on:
+  push:
+    branches: main
+    paths: model.xml
+  workflow_dispatch:
+  # only for testing:
+  pull_request:
+    branches: main
+
+permissions: write-all
+
+jobs:
+  build:
+    name: "Convert model.xml to models.py"
+    runs-on: ubuntu-22.04
+    env:
+      BRANCHNAME: models-${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+     - name: Install dependencies
+       run: |
+          sudo apt update
+          sudo apt install python3-lxml python3-jinja2 -y
+     - name: Checkout xmltodjangomodel
+       uses: actions/checkout@v3
+       with:
+         repository: acdh-oeaw/xmltodjangomodel
+         path: xmltodjangomodel
+     - name: Checkout sicprod repository
+       uses: actions/checkout@v3
+       with:
+         path: sicprod-datamodel
+     - name: Checkout ontologies repository
+       uses: actions/checkout@v3
+       with:
+         repository: acdh-oeaw/apis-ontologies
+         path: apis-ontologies
+     - name: Build models.py
+       run: |
+         cd xmltodjangomodel
+         find .
+         python3 convert.py ../sicprod-datamodel/model.xml ../apis-ontologies/sicprod/models.py
+     - name: Create PR
+       run: |
+         cd apis-ontologies
+         git config user.name github-actions
+         git config user.email github-actions@github.com
+         git checkout -b ${{ env.BRANCHNAME }}
+         git add sicprod/models.py
+         git commit -m 'Updated models.py from sicprod-datamodels repository'
+         gh auth login
+         gh pr create --title 'Updated models.py from sicprod-datamodels worflow' --body 'Updated models.py' --head ${{ env.BRANCHNAME }} -d
+       env:
+         GH_TOKEN: ${{ secrets.ONTOLOGIES_PR }}
