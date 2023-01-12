@@ -9,6 +9,7 @@ on:
   push:
     branches: main
     paths: model.xml
+  workflow_dispatch:
 
 permissions:
   contents: write
