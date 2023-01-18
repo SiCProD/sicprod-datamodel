@@ -1,0 +1,32 @@
+#Github workflow for linting xml file
+#
+#SPDX-FileCopyrightText: 2023 Birger Schacht
+#SPDX-License-Identifier: MIT
+
+name: "Check model.xml for validity"
+
+on:
+  push:
+    paths: model.xml
+  pull_request:
+    paths: model.xml
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: "Check validity of model.xml"
+    runs-on: ubuntu-22.04
+
+    steps:
+     - name: Install xmllint and fetch rnd
+       run: |
+         sudo apt update
+         sudo apt-get -y install libxml2-utils wget
+         wget https://raw.githubusercontent.com/dasch124/modeller/main/model.rng
+     - name: Checkout sicprod repository
+       uses: actions/checkout@v3
+       with:
+         path: sicprod-datamodel
+     - name: Lint xml file
+       run: xmllint --noout --relaxng model.rng sicprod-datamodel/model.xml
+
