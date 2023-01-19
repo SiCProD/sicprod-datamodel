@@ -69,9 +69,7 @@
             </properties>
             <relations>
                 <relation ID="PersonHasLivingPlace">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
                     </targetClass>
@@ -79,9 +77,7 @@
                     <reverseName>Bewohner von</reverseName>
                 </relation>
                 <relation ID="PersonOwnsPlace">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
                     </targetClass>
@@ -89,9 +85,7 @@
                     <reverseName>Besitzer von</reverseName>
                 </relation>
                 <relation ID="PersonIsWorkingInPlace">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
                     </targetClass>
@@ -99,9 +93,7 @@
                     <reverseName>ist Tätigkeitsort von</reverseName>
                 </relation>
                 <relation ID="PersonPlaceOfResidence">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
                     </targetClass>
@@ -109,9 +101,7 @@
                     <reverseName>ist Aufenthaltsort von</reverseName>
                 </relation>
                 <relation ID="PersonHasCorrespondanceWith">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -119,9 +109,7 @@
                     <reverseName>hat Korrespondenz mit</reverseName>
                 </relation>
                 <relation ID="PersonHasFamilyRelationWith">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -129,9 +117,7 @@
                     <reverseName>hat Familienbeziehung zu</reverseName>
                 </relation>
                 <relation ID="PersonIsFatherOf">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -139,9 +125,7 @@
                     <reverseName>ist Kind von</reverseName>
                 </relation>
                 <relation ID="PersonIsBrotherOf">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -149,9 +133,7 @@
                     <reverseName>ist Bruder/Schwester von</reverseName>
                 </relation>
                 <relation ID="PersonIsSonOf">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -159,9 +141,7 @@
                     <reverseName>ist Elternteil von</reverseName>
                 </relation>
                 <relation ID="PersonHasMarrigeWith">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -169,9 +149,7 @@
                     <reverseName>hat Ehe mit</reverseName>
                 </relation>
                 <relation ID="PersonWasPresentAtCourt">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="court">
                         <arity>0-n</arity>
                     </targetClass>
@@ -179,9 +157,7 @@
                     <reverseName>hatte anwesende Person</reverseName>
                 </relation>
                 <relation ID="PersonRecommendedPersonForCourt">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -189,9 +165,7 @@
                     <reverseName>wurde empfohlen von</reverseName>
                 </relation>
                 <relation ID="PersonHadBusinessRealtionshipWithPerson">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -199,9 +173,7 @@
                     <reverseName>hat Geschäftsbeziehung zu</reverseName>
                 </relation>
                 <relation ID="PersonIsCustodianOfPerson">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
                     </targetClass>
@@ -209,9 +181,7 @@
                     <reverseName>ist Mündel von</reverseName>
                 </relation>
                 <relation ID="PersonWasMemberOfInstitution">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
                     </targetClass>
@@ -219,9 +189,7 @@
                     <reverseName>hatte Mitglied</reverseName>
                 </relation>
                 <relation ID="PersonWasActiveInInstitution">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
                     </targetClass>
@@ -229,9 +197,7 @@
                     <reverseName>hatte tätige Person</reverseName>
                 </relation>
                 <relation ID="PersonGetsPensionFromInstitution">
-                    <sourceClass target="person">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
                     </targetClass>
@@ -239,9 +205,7 @@
                     <reverseName>hat Pfründner</reverseName>
                 </relation>
                 <relation ID="PersonTookPartInEvent">
-                    <sourceClass target="person">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="event">
                         <arity>1</arity>
                     </targetClass>
@@ -249,9 +213,7 @@
                     <reverseName>hatte teilnehmende Person</reverseName>
                 </relation>
                 <relation ID="PersonRecievedSalary">
-                    <sourceClass target="salary">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="salary" />
                     <targetClass target="person">
                         <arity>1</arity>
                     </targetClass>
@@ -259,9 +221,7 @@
                     <reverseName>wurde ausbezahlt an</reverseName>
                 </relation>
                 <relation ID="PersonAuthorizedSalary">
-                    <sourceClass target="person">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="salary">
                         <arity>1</arity>
                     </targetClass>
@@ -269,9 +229,7 @@
                     <reverseName>auf Anweisung von</reverseName>
                 </relation>
                 <relation ID="PersonBornIn">
-                    <sourceClass target="person">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
@@ -279,9 +237,7 @@
                     <reverseName>Geburtsort von</reverseName>
                 </relation>
                 <relation ID="PersonDiedIn">
-                    <sourceClass target="person">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
@@ -322,9 +278,7 @@
             </properties>
             <relations>
                 <relation ID="FunctionIsLocatedAtInstitution">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="function" />
                     <targetClass target="institution court">
                         <arity>1</arity>
                     </targetClass>
@@ -332,9 +286,7 @@
                     <reverseName>hat Funktion</reverseName>
                 </relation>
                 <relation ID="FunctionIsHoldBy">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="function" />
                     <targetClass target="person">
                         <arity>1</arity>
                     </targetClass>
@@ -342,9 +294,7 @@
                     <reverseName>hat Funktion inne</reverseName>
                 </relation>
                 <relation ID="FunctionGingHervorAus">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="function" />
                     <targetClass target="function">
                         <arity>1</arity>
                     </targetClass>
@@ -352,9 +302,7 @@
                     <reverseName>war Vorgänger von</reverseName>
                 </relation> 
                 <relation ID="FunctionIsSubordinaryOf">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="function" />
                     <targetClass target="function">
                         <arity>1</arity>
                     </targetClass>
@@ -362,9 +310,7 @@
                     <reverseName>hat untergeordnete Funktion</reverseName>
                 </relation>
                 <relation ID="FunctionWasLocatedIn">
-                    <sourceClass target="function">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="function" />
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
@@ -416,9 +362,7 @@
             </properties>
             <relations>
                 <relation ID="PlaceLocatedInPlace">
-                    <sourceClass target="place">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="place" />
                     <targetClass target="place">
                         <arity>0-n</arity>
                     </targetClass>
@@ -471,9 +415,7 @@
             </properties>
             <relations>
                 <relation ID="InstitutionPaidSalary">
-                    <sourceClass target="institution">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="institution" />
                     <targetClass target="salary">
                         <arity>1</arity>
                     </targetClass>
@@ -481,9 +423,7 @@
                     <reverseName>wurde ausbezahlt von</reverseName>
                 </relation>
                 <relation ID="InstitutionlocatedIn">
-                    <sourceClass target="institution">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="institution" />
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
@@ -581,9 +521,7 @@
             </properties>
             <relations>
                 <relation ID="EventTookPlaceAt">
-                    <sourceClass target="event">
-                        <arity>1</arity>
-                    </sourceClass>
+                    <sourceClass target="event" />
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
@@ -629,9 +567,7 @@
             </properties>
             <relations>
                 <relation ID="SalaryPaidTo">
-                    <sourceClass target="salary">
-                        <arity>0-n</arity>
-                    </sourceClass>
+                    <sourceClass target="salary" />
                     <targetClass target="function">
                         <arity>0-n</arity>
                     </targetClass>
