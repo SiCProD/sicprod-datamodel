@@ -252,6 +252,14 @@
                     <name>ist im Dienst von</name>
                     <reverseName>hat Diener</reverseName>
                 </relation>
+                <relation ID="PersonHasHometown">
+                    <sourceClass target="person" />
+                    <targetClass target="place">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>hat Heimatwort in</name>
+                    <reverseName>Heimatort von</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
