@@ -446,6 +446,14 @@
                     <name>ist verpfändet an</name>
                     <reverseName>hat als Pfand</reverseName>
                 </relation>
+                <relation ID="InstitutionBelongsToInstitution">
+                    <sourceClass target="institution" />
+                    <targetClass target="institution">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>gehört zu</name>
+                    <reverseName>zuständig für</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
