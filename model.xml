@@ -590,6 +590,14 @@
                     <name>wurde ausbezahlt an</name>
                     <reverseName>erhielt</reverseName>
                 </relation>
+                <relation ID="SalaryOrderedBy">
+                    <sourceClass target="salary" />
+                    <targetClass target="function">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>auf Anweisung von</name>
+                    <reverseName>wies an</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount">crm:E97_Monetary_Amount</className>
