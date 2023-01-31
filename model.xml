@@ -454,6 +454,14 @@
                     <name>gehört zu</name>
                     <reverseName>zuständig für</reverseName>
                 </relation>
+                <relation ID="InstitutionOrdersSalary">
+                    <sourceClass target="institution" />
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>weist an</name>
+                    <reverseName>angewiesen von</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
