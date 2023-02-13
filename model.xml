@@ -257,7 +257,7 @@
                     <targetClass target="place">
                         <arity>1</arity>
                     </targetClass>
-                    <name>hat Heimatwort in</name>
+                    <name>hat Heimatort in</name>
                     <reverseName>Heimatort von</reverseName>
                 </relation>
             </relations>
