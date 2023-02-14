@@ -268,6 +268,14 @@
                     <name>verkauft Besitz an</name>
                     <reverseName>kauft Besitz von</reverseName>
                 </relation>
+                <relation ID="PersonHasDisputeWith">
+                    <sourceClass target="person" />
+                    <targetClass target="person">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>hat Streit mit</name>
+                    <reverseName>hat Streit mit</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
