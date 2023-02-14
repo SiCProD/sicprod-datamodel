@@ -698,6 +698,8 @@
                         <item>Provision</item>
                         <item>Kredit</item>
                         <item>Sonstiges</item>
+                        <item>Burghut</item>
+                        <item>Botenlohn</item>
                     </list>
                 </values>
             </vocab>
