@@ -276,6 +276,14 @@
                     <name>hat Streit mit</name>
                     <reverseName>hat Streit mit</reverseName>
                 </relation>
+                <relation ID="PersonExecutesSalary">
+                    <sourceClass target="person" />
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>führt durch</name>
+                    <reverseName>nimmt entgegen</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
@@ -340,6 +348,14 @@
                     </targetClass>
                     <name>ausgeübt in</name>
                     <reverseName>war Ausübungsort von</reverseName>
+                </relation>
+                <relation ID="FunctionExecutesSalary">
+                    <sourceClass target="function" />
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>führt durch</name>
+                    <reverseName>nimmt entgegen</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
