@@ -276,13 +276,21 @@
                     <name>hat Streit mit</name>
                     <reverseName>hat Streit mit</reverseName>
                 </relation>
-                <relation ID="PersonExecutesSalary">
-                    <sourceClass target="person" />
+                <relation ID="PersonOrFunctionExecutesSalary">
+                    <sourceClass target="person function" />
                     <targetClass target="salary">
                         <arity>1</arity>
                     </targetClass>
                     <name>führt durch</name>
-                    <reverseName>nimmt entgegen</reverseName>
+                    <reverseName>wird durchgeführt von</reverseName>
+                </relation>
+                <relation ID="PersonOrFunctionTakesSalary">
+                    <sourceClass target="person function" />
+                    <targetClass target="salary">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>nimmt entgegen</name>
+                    <reverseName>wird entgegengenommen von</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
@@ -348,14 +356,6 @@
                     </targetClass>
                     <name>ausgeübt in</name>
                     <reverseName>war Ausübungsort von</reverseName>
-                </relation>
-                <relation ID="FunctionExecutesSalary">
-                    <sourceClass target="function" />
-                    <targetClass target="salary">
-                        <arity>1</arity>
-                    </targetClass>
-                    <name>führt durch</name>
-                    <reverseName>nimmt entgegen</reverseName>
                 </relation>
             </relations>
             <mapping targetLanguage="crm">
