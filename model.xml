@@ -69,6 +69,7 @@
             </properties>
             <relations>
                 <relation ID="PersonHasLivingPlace">
+                    <reification>Wohnhort</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -77,6 +78,7 @@
                     <reverseName>Bewohner von</reverseName>
                 </relation>
                 <relation ID="PersonOwnsPlace">
+                    <reification>Besitz</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -85,6 +87,7 @@
                     <reverseName>Besitzer von</reverseName>
                 </relation>
                 <relation ID="PersonIsWorkingInPlace">
+                    <reification id="Workplace">Tätigkeitsort</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -93,6 +96,7 @@
                     <reverseName>ist Tätigkeitsort von</reverseName>
                 </relation>
                 <relation ID="PersonPlaceOfResidence">
+                    <reification id="Residence">Aufenthaltsort</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -101,6 +105,7 @@
                     <reverseName>ist Aufenthaltsort von</reverseName>
                 </relation>
                 <relation ID="PersonHasCorrespondanceWith">
+                    <reification id="Correspondence">Korrespondenz</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -109,6 +114,7 @@
                     <reverseName>hat Korrespondenz mit</reverseName>
                 </relation>
                 <relation ID="PersonHasFamilyRelationWith">
+                    <reification id="Familyrelations">Familienbeziehung</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -117,6 +123,7 @@
                     <reverseName>hat Familienbeziehung zu</reverseName>
                 </relation>
                 <relation ID="PersonIsFatherOf">
+                    <reification id="Parent">Elternteil</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -125,6 +132,7 @@
                     <reverseName>ist Kind von</reverseName>
                 </relation>
                 <relation ID="PersonIsBrotherOf">
+                    <reification id="Sibling">Bruder/Schwester</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -133,6 +141,7 @@
                     <reverseName>ist Bruder/Schwester von</reverseName>
                 </relation>
                 <relation ID="PersonIsSonOf">
+                    <reification id="Child">Kind</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -141,6 +150,7 @@
                     <reverseName>ist Elternteil von</reverseName>
                 </relation>
                 <relation ID="PersonHasMarrigeWith">
+                    <reification id="Marriage">Ehe</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -149,6 +159,7 @@
                     <reverseName>hat Ehe mit</reverseName>
                 </relation>
                 <relation ID="PersonWasPresentAtCourt">
+                    <reification id="Presence">Anwesenheit</reification>
                     <sourceClass target="person" />
                     <targetClass target="court">
                         <arity>0-n</arity>
@@ -157,6 +168,7 @@
                     <reverseName>hatte anwesende Person</reverseName>
                 </relation>
                 <relation ID="PersonRecommendedPersonForCourt">
+                    <reification id="Recommendation">Empfehlung</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -165,6 +177,7 @@
                     <reverseName>wurde empfohlen von</reverseName>
                 </relation>
                 <relation ID="PersonHadBusinessRealtionshipWithPerson">
+                    <reification id="Businessrelationship">Geschäftsbeziehung</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -173,6 +186,7 @@
                     <reverseName>hat Geschäftsbeziehung zu</reverseName>
                 </relation>
                 <relation ID="PersonIsCustodianOfPerson">
+                    <reification id="Custodian">Mündel</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -181,6 +195,7 @@
                     <reverseName>ist Mündel von</reverseName>
                 </relation>
                 <relation ID="PersonWasMemberOfInstitution">
+                    <reification id="Member">Mitglied</reification>
                     <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
@@ -189,6 +204,7 @@
                     <reverseName>hatte Mitglied</reverseName>
                 </relation>
                 <relation ID="PersonWasActiveInInstitution">
+                    <reification id="Activity">Tätigkeit</reification>
                     <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
@@ -197,6 +213,7 @@
                     <reverseName>hatte tätige Person</reverseName>
                 </relation>
                 <relation ID="PersonGetsPensionFromInstitution">
+                    <reification id="Pension">Pfründe</reification>
                     <sourceClass target="person" />
                     <targetClass target="institution">
                         <arity>0-n</arity>
@@ -205,6 +222,7 @@
                     <reverseName>hat Pfründner</reverseName>
                 </relation>
                 <relation ID="PersonTookPartInEvent">
+                    <reification id="Participation">Teilnahme</reification>
                     <sourceClass target="person" />
                     <targetClass target="event">
                         <arity>1</arity>
@@ -213,6 +231,7 @@
                     <reverseName>hatte teilnehmende Person</reverseName>
                 </relation>
                 <relation ID="PersonRecievedSalary">
+                    <reification id="Outpayment">Auzahlung</reification>
                     <sourceClass target="salary" />
                     <targetClass target="person">
                         <arity>1</arity>
@@ -221,6 +240,7 @@
                     <reverseName>wurde ausbezahlt an</reverseName>
                 </relation>
                 <relation ID="PersonAuthorizedSalary">
+                    <reification id="Authorization">Autorisierung</reification>
                     <sourceClass target="person" />
                     <targetClass target="salary">
                         <arity>1</arity>
@@ -229,6 +249,7 @@
                     <reverseName>auf Anweisung von</reverseName>
                 </relation>
                 <relation ID="PersonBornIn">
+                    <reification id="Birth">Geburt</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -237,6 +258,7 @@
                     <reverseName>Geburtsort von</reverseName>
                 </relation>
                 <relation ID="PersonDiedIn">
+                    <reification id="Death">Tod</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -245,6 +267,7 @@
                     <reverseName>Sterbeort von</reverseName>
                 </relation>
                 <relation ID="PersonIsServantOfPerson">
+                    <reification id="Servant">Diener</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>0-n</arity>
@@ -253,6 +276,7 @@
                     <reverseName>hat Diener</reverseName>
                 </relation>
                 <relation ID="PersonHasHometown">
+                    <reification id="Hometown">Heimatort</reification>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -261,6 +285,7 @@
                     <reverseName>Heimatort von</reverseName>
                 </relation>
                 <relation ID="PersonSellsPropertyTo">
+                    <reification id="Sale">Verkauf</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>1</arity>
@@ -269,6 +294,7 @@
                     <reverseName>kauft Besitz von</reverseName>
                 </relation>
                 <relation ID="PersonHasDisputeWith">
+                    <reification id="Dispute">Streit</reification>
                     <sourceClass target="person" />
                     <targetClass target="person">
                         <arity>1</arity>
@@ -277,6 +303,7 @@
                     <reverseName>hat Streit mit</reverseName>
                 </relation>
                 <relation ID="PersonOrFunctionExecutesSalary">
+                    <reification id="Execution">Durchführung</reification>
                     <sourceClass target="person function" />
                     <targetClass target="salary">
                         <arity>1</arity>
@@ -285,6 +312,7 @@
                     <reverseName>wird durchgeführt von</reverseName>
                 </relation>
                 <relation ID="PersonOrFunctionTakesSalary">
+                    <reification id="Receiving">Entgegennahme</reification>
                     <sourceClass target="person function" />
                     <targetClass target="salary">
                         <arity>1</arity>
@@ -318,6 +346,7 @@
             </properties>
             <relations>
                 <relation ID="FunctionIsLocatedAtInstitution">
+                    <reification id="???">???</reification>
                     <sourceClass target="function" />
                     <targetClass target="institution court">
                         <arity>1</arity>
@@ -326,6 +355,7 @@
                     <reverseName>hat Funktion</reverseName>
                 </relation>
                 <relation ID="FunctionIsHoldBy">
+                    <reification id="???">???</reification>
                     <sourceClass target="function" />
                     <targetClass target="person">
                         <arity>1</arity>
@@ -334,6 +364,7 @@
                     <reverseName>hat Funktion inne</reverseName>
                 </relation>
                 <relation ID="FunctionGingHervorAus">
+                    <reification id="???">???</reification>
                     <sourceClass target="function" />
                     <targetClass target="function">
                         <arity>1</arity>
@@ -342,6 +373,7 @@
                     <reverseName>war Vorgänger von</reverseName>
                 </relation> 
                 <relation ID="FunctionIsSubordinaryOf">
+                    <reification id="Subordinary">Untergeordnete Funktion</reification>
                     <sourceClass target="function" />
                     <targetClass target="function">
                         <arity>1</arity>
@@ -350,6 +382,7 @@
                     <reverseName>hat untergeordnete Funktion</reverseName>
                 </relation>
                 <relation ID="FunctionWasLocatedIn">
+                    <reification id="???">???</reification>
                     <sourceClass target="function" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -402,6 +435,7 @@
             </properties>
             <relations>
                 <relation ID="PlaceLocatedInPlace">
+                    <reification id="Part">Teil</reification>
                     <sourceClass target="place" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -455,6 +489,7 @@
             </properties>
             <relations>
                 <relation ID="InstitutionPaidSalary">
+                    <reification id="Payment">Auszahlung</reification>
                     <sourceClass target="institution" />
                     <targetClass target="salary">
                         <arity>1</arity>
@@ -463,6 +498,7 @@
                     <reverseName>wurde ausbezahlt von</reverseName>
                 </relation>
                 <relation ID="InstitutionlocatedIn">
+                    <reification id="???">???</reification>
                     <sourceClass target="institution" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -471,6 +507,7 @@
                     <reverseName>inkludiert</reverseName>
                 </relation>
                 <relation ID="InstitutionGivenInMortageTo">
+                    <reification id="Mortage">Pfand</reification>
                     <sourceClass target="institution" />
                     <targetClass target="person">
                         <arity>1</arity>
@@ -479,6 +516,7 @@
                     <reverseName>hat als Pfand</reverseName>
                 </relation>
                 <relation ID="InstitutionBelongsToInstitution">
+                    <reification id="Part">Teil</reification>
                     <sourceClass target="institution" />
                     <targetClass target="institution">
                         <arity>1</arity>
@@ -487,6 +525,7 @@
                     <reverseName>zuständig für</reverseName>
                 </relation>
                 <relation ID="InstitutionOrdersSalary">
+                    <reification id="Order">Auftrag</reification>
                     <sourceClass target="institution" />
                     <targetClass target="salary">
                         <arity>1</arity>
@@ -585,6 +624,7 @@
             </properties>
             <relations>
                 <relation ID="EventTookPlaceAt">
+                    <reification id="???">???</reification>
                     <sourceClass target="event" />
                     <targetClass target="place">
                         <arity>1</arity>
@@ -631,6 +671,7 @@
             </properties>
             <relations>
                 <relation ID="SalaryPaidTo">
+                    <reification id="Payment">Auszahlung</reification>
                     <sourceClass target="salary" />
                     <targetClass target="function">
                         <arity>0-n</arity>
@@ -639,6 +680,7 @@
                     <reverseName>erhielt</reverseName>
                 </relation>
                 <relation ID="SalaryOrderedBy">
+                    <reification id="Order">Anweisung</reification>
                     <sourceClass target="salary" />
                     <targetClass target="function">
                         <arity>0-n</arity>
