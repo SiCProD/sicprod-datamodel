@@ -292,6 +292,14 @@
                     <name>nimmt entgegen</name>
                     <reverseName>wird entgegengenommen von</reverseName>
                 </relation>
+                <relation ID="PersonVouchersForPerson">
+                    <sourceClass target="person" />
+                    <targetClass target="person">
+                        <arity>0-n</arity>
+                    </targetClass>
+                    <name>bürgt für</name>
+                    <reverseName>wird gebürgt von</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E21_Person">crm:E21_Person</className>
