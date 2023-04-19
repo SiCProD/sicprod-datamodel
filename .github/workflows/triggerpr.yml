@@ -8,7 +8,9 @@ name: "Trigger a PR in the ontologies repo with the changes to the datamodel"
 on:
   push:
     branches: main
-    paths: model.xml
+    paths:
+      - 'model.xml'
+      - 'methods/*.py'
   workflow_dispatch:
 
 jobs:
