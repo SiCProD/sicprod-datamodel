@@ -510,6 +510,14 @@
                     <name>weist an</name>
                     <reverseName>angewiesen von</reverseName>
                 </relation>
+                <relation ID="InstitutionHasTieToInstitution">
+                    <sourceClass target="institution" />
+                    <targetClass target="institution">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>steht in Verbindung mit</name>
+                    <reverseName>steht in Verbindung mit</reverseName>
+                </relation>
             </relations>
             <mapping targetLanguage="crm">
                 <className uri="http://www.cidoc-crm.org/cidoc-crm/E74_Group">crm:E74_Group</className>
