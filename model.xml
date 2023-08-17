@@ -365,6 +365,14 @@
                     <name>ist untergeordnet</name>
                     <reverseName>hat untergeordnete Funktion</reverseName>
                 </relation>
+                <relation ID="FunctionHasTieToFunction">
+                    <sourceClass target="function" />
+                    <targetClass target="function">
+                        <arity>1</arity>
+                    </targetClass>
+                    <name>ist verbunden mit</name>
+                    <reverseName>ist verbunden mit</reverseName>
+                </relation>
                 <relation ID="FunctionWasLocatedIn">
                     <sourceClass target="function" />
                     <targetClass target="place">
