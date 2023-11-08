@@ -68,7 +68,7 @@
                 </property>
             </properties>
             <relations>
-                <relation ID="PersonHasLivingPlace">
+                <relation ID="PersonHasLivingPlace" id=1>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
@@ -76,7 +76,7 @@
                     <name>bewohnt</name>
                     <reverseName>Bewohner von</reverseName>
                 </relation>
-                <relation ID="PersonOwnsPlace">
+                <relation ID="PersonOwnsPlace" id=2>
                     <sourceClass target="person" />
                     <targetClass target="place">
                         <arity>0-n</arity>
